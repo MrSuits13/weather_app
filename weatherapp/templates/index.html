@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Weather App{% endblock %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h2 style="text-align: center;">Welcome, {{ user.username }}!</h2>
+    <p style="text-align: center;">You have successfully logged in to the Weather App.</p>
+    <ul>
+      {% for weather in weathers %}
+        <li>{{ weather.city }} - {{ weather.temperature }}°C</li>
+      {% endfor %}
+    </ul>
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="{% url 'add_weather' %}">
+        <button type="button" class="button">Add Weather</button>
+      </a>
+    </div>
+  {% else %}
+    <h2 style="text-align: center;">Weather Data</h2>
+    <ul>
+      {% for weather in weathers %}
+        <li>{{ weather.city }} - {{ weather.temperature }}°C</li>
+      {% endfor %}
+    </ul>
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="{% url 'add_weather' %}">
+        <button type="button" class="button">Add Weather</button>
+      </a>
+    </div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Weather{% endblock %}
+
+{% block content %}
+  <h2>Add Weather</h2>
+  <div class="form-container">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="button">Add Weather</button>
+      <a href="{% url 'index' %}">
+        <button type="button" class="button secondary">Go Back</button>
+      </a>
+    </form>
+  </div>
+{% endblock %}

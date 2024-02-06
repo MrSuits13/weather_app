@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Weather App{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        /* Button styling */
+        .button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .button.secondary {
+            background-color: #95a5a6;
+        }
+
+        /* Form styling */
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-container form {
+            text-align: center;
+        }
+
+        .form-container button {
+            margin-top: 10px;
+        }
+
+        /* Add more styling as needed */
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'add_weather' %}" class="button">Add Weather</a>
+        <a href="{% url 'login' %}" class="button">Login</a>
+        <a href="{% url 'register' %}" class="button secondary">Register</a>
+    </nav>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
